@@ -1,0 +1,280 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminPage.master.cs" Inherits="admin_AdminPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Admin Panel</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="../css/jquery-ui.css"/>
+<link rel="stylesheet" type="text/css" href="../css/owl.carousel.css"/>
+<link rel="stylesheet" type="text/css" href="../css/fotorama.css"/>
+<link rel="stylesheet" type="text/css" href="../css/magnific-popup.css"/>
+<link rel="stylesheet" type="text/css" href="../css/custom.css"/>
+<link rel="stylesheet" type="text/css" href="../css/responsive.css"/>
+<link rel="shortcut icon" href="../images/favicon.png"/>
+
+<asp:ContentPlaceHolder id="head" runat="server">
+<style type="text/css">
+.ssbox{ background:#000; border:non;}
+</style>
+
+</asp:ContentPlaceHolder>
+</head>
+<body>
+  <form id="form1" runat="server">
+  <asp:ScriptManager ID="ScriptManager1" runat="server">
+  </asp:ScriptManager>
+  <div class="main">
+  <header class="navbar navbar-custom" id="header">
+    <div class="header-top">
+      <div class="container">
+        <div class="header-top-inner">
+          <div class="row">
+           <div class="col-sm-3 col-md-3">
+			<div class="navbar-header float-none-sm">
+                <a class="navbar-brand page-scroll" href="Default.aspx">
+                  <img alt="paulshoes" class="logo1" src="../images/paulshoes-logo.png" />
+                </a> 
+				<button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+				<big><big><i class="fa fa-bars"></i></big></big></button>
+            </div>
+            </div>
+            <div class="col-sm-9 col-md-9">
+              <div class="top-link right-side">
+                <ul>
+                <li class="mobile-view-search visible-sm visible-xs visible-md visible-lg">
+                    <div class="mobile-view">
+                      <div>
+                        <div class="ssbox">
+                        <asp:TextBox ID="TextBox1" Width="150px" style="width: 150px; background: #000; border: none;" runat="server"></asp:TextBox>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                   <li>&nbsp;&nbsp;&nbsp;</li>
+                  <li class="wishlist-icon"><a href="MemberDetails.aspx"><i class="fa fa-users" aria-hidden="true"></i> Members</a></li>
+                  <li class="Compare-icon"><a href="ChangePassword.aspx"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></li>
+                  <li><a href="login.aspx">
+                   <asp:LinkButton ID="lnkLogin" runat="server" onclick="lnkLogin_Click"></asp:LinkButton></a>
+                  </li>
+                </ul>
+               </div>
+			  
+			   <div class="header-right-part right-side float-none-sm">
+                <ul>
+                  <li><asp:Panel ID="pnlLogin" runat="server">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </asp:Panel></li>
+                  <%--<li class="shipping-icon visible-lg visible-md">
+                    <asp:Panel ID="API_balance" runat="server" Visible="false">
+                      <div class="header-right-text">API Balance</div>
+                      <div class="header-price">
+                      <asp:Label ID="lblAPIBalance" runat="server" Text=""></asp:Label>
+                      </div>
+                    </asp:Panel>
+                  </li>--%>
+                  <%--<li class="shipping-icon visible-lg visible-md">
+                    <a href="AdminWallet.aspx">
+                      <span>  
+                      </span>
+                      <div class="header-right-text">Admin Wallet</div>
+                      <div class="header-price">
+                      <asp:Repeater ID="rpWallet" runat="server">
+                        <ItemTemplate>
+                          <i class="fa fa-inr" aria-hidden="true"></i> <%# Eval("amount")%>
+                        </ItemTemplate>
+                        </asp:Repeater>
+                      </div>
+                    </a>
+                  </li>--%>
+                  <%--<li class="cart-icon">
+                    <a href="MemberAmountRequest.aspx">
+                      <span>
+                        <small class="cart-notification">
+                        <asp:Repeater ID="rpRequest" runat="server">
+                        <ItemTemplate>
+                          <%# Eval("norequest")%>
+                        </ItemTemplate>
+                        </asp:Repeater>
+                        </small>
+                      </span>
+                      <div class="header-right-text">Amount Request</div>
+                      <div class="header-price"></div>
+                    </a>
+                  </li>--%>
+                </ul>
+              </div>
+
+            <div id="menu" class="navbar-collapse collapse left-side" >
+			<%--<div class="top-search-bar visible-lg visible-md">
+            <div class="search-box"> <a href="#" class="search-btn"><span></span></a>
+              <input type="text" name="serch" value="" class="input-text" placeholder="Search..."/>
+              <div class="close-btn search-opener"><span></span></div>
+            </div>
+          </div>--%>
+          <ul class="nav navbar-nav navbar-left">
+            <li class="level"><a href="Default.aspx" class="page-scroll">Home</a></li>
+            <li class="level">
+              <span class="opener plus"></span>
+              <a href="#" class="page-scroll">Products</a>
+              <div class="megamenu mobile-sub-menu">
+                <div class="megamenu-inner-top">
+                  <ul class="sub-menu-level1">
+                    <li class="level2"><a href="AddProduct.aspx">Add Products</a></li>
+                    <li class="level2"><a href="EditProduct.aspx">Edit Products</a></li>
+                    <li class="level2"><a href="CreateSubcategory.aspx">Add Sub Category</a></li>
+                    <li class="level2"><a href="CreateCategory.aspx">Add Category</a></li>
+                    <%--<li class="level2"><a href="AddBrandLogo.aspx">Add Brand Logo</a></li>--%>
+                    <li class="level2"><a href="AddVideo.aspx">Add Videos</a></li>
+                    <li class="level2"><a href="ProductReview.aspx">Product Review</a></li>
+                    <%--<li class="level2"><a href="AddDeliveryPincode.aspx">Add Delivery Postcode</a></li>--%>
+                  </ul>
+                </div>
+              </div>
+            </li>
+           		
+            <li class="level">
+              <span class="opener plus"></span>
+              <a class="page-scroll">Member</a>
+              <div class="megamenu mobile-sub-menu">
+                <div class="megamenu-inner-top">
+                  <ul class="sub-menu-level1">
+                    <%--<li class="level2"><a href="MemberAmountRequest.aspx">Member Amount Request</a></li>
+                    <li class="level2"><a href="BeneficiaryDetails.aspx">Member Beneficiary Details</a></li>--%>
+                    <li class="level2"><a href="Registration.aspx">Registered User</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+           
+            <li class="level">
+              <span class="opener plus"></span>
+              <a href="" class="page-scroll">Sales/Order</a>
+              <div class="megamenu mobile-sub-menu">
+                <div class="megamenu-inner-top">
+                  <ul class="sub-menu-level1">
+                    <li class="level2"><a href="SalesDetails.aspx">Sales Details</a></li>
+                    <li class="level2"><a href="OrderDetails.aspx">Order Details</a></li>
+                    <li class="level2"><a href="WishList.aspx">Wishlist Details</a></li>
+                    <li class="level2"><a href="RecomendedProduct.aspx">Recomended Product</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+           <li class="level">
+              <span class="opener plus"></span>
+              <a href="#" class="page-scroll">Coupon</a>
+              <div class="megamenu mobile-sub-menu">
+                <div class="megamenu-inner-top">
+                  <ul class="sub-menu-level1">
+                    <li class="level2"><a href="AddnewCoupon.aspx">Add New Coupon</a></li>
+                    <li class="level2"><a href="CouponDetails.aspx">Coupon Details</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="level"><a href="UserSubscription.aspx" class="page-scroll">Subscriptions</a></li>
+            <li class="level">
+              <span class="opener plus"></span>
+              <a href="#" class="page-scroll">Blog</a>
+              <div class="megamenu mobile-sub-menu">
+                <div class="megamenu-inner-top">
+                  <ul class="sub-menu-level1">
+                    <li class="level2"><a href="Addnewblog.aspx">Add New Blog</a></li>
+                    <li class="level2"><a href="EditBlog.aspx">View/Edit Blog</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="level">
+              <span class="opener plus"></span>
+              <a href="#" class="page-scroll">Event</a>
+              <div class="megamenu mobile-sub-menu">
+                <div class="megamenu-inner-top">
+                  <ul class="sub-menu-level1">
+                    <li class="level2"><a href="Addnewevent.aspx">Add New Event</a></li>
+                    <li class="level2"><a href="EditEvent.aspx">View/Edit Event</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+             
+          </ul>
+		  <%--<div class="search-btn-icon search-opener visible-lg visible-md">
+            <button class="search-btn"></button>
+          </div>--%>
+        </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+	
+  </header>
+  <!-- HEADER END -->
+
+  <section class="mtb-40">
+    <div class="container">
+        <div class="row">
+        <div class="col-xs-12">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <div class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-bottom mtb-30">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="footer_social pt-xs-15 center-xs mt-xs-15">
+                <ul class="social-icon">
+                  <li><a title="Facebook" class="facebook"><i class="fa fa-facebook"> </i></a></li>
+                  <li><a title="Twitter" class="twitter"><i class="fa fa-twitter"> </i></a></li>
+                  <li><a title="Linkedin" class="linkedin"><i class="fa fa-linkedin"> </i></a></li>
+                  <li><a title="RSS" class="rss"><i class="fa fa-rss"> </i></a></li>
+                  <li><a title="Pinterest" class="pinterest"><i class="fa fa-pinterest"> </i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="copy-right center-xs">© 2019 paulshoes-Tabletennis.com, All Rights Reserved.</div>
+            </div>
+            <div class="col-sm-4">
+              <div class="payment right-side float-none-xs center-xs">
+                <ul class="payment_icon">
+                  <li class="discover"><a></a></li>
+                  <li class="visa"><a></a></li>
+                  <li class="mastro"><a></a></li>
+                  <li class="paypal"><a></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+<script src="../js/jquery-1.12.3.min.js" type="text/javascript"></script>
+<script src="../js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../js/jquery-ui.js" type="text/javascript"></script>
+<script src="../js/fotorama.js" type="text/javascript"></script>
+<script src="../js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script src="../js/owl.carousel.min.js" type="text/javascript"></script>
+<script src="../js/custom.js" type="text/javascript"></script>
+</body>
+</html>

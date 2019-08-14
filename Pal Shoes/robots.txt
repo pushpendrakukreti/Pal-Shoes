@@ -1,0 +1,17 @@
+#robots.txt
+User-agent: *
+Disallow: 
+Sitemap: http://Palshoes.com/sitemap.xml
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /images/
+Disallow: /img/
+Disallow: /Upload/images/
+allow: /Upload/thumbnails/
+allow: /Upload/brand/
+Disallow: /App_Code/
+Disallow: /autocomplete/
+Disallow: /Controls
+Disallow: /Data/
+Disallow: /data1/
+Disallow: /engine1/
